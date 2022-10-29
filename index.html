@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Git Course</title>
+    <title>Vue Course</title>
 </head>
 <body>
     <H1>Hello Git!</H1>
+
+    <div class="container" id="app">
+        <div class="card">
+            <h1>{{title}}</h1>
+            <div class="form-control">
+                <input type="text" 
+                style="width: 600px" 
+                v-bind:placeholder="placeholderString" 
+                v-bind:value="inputValue"
+                v-on:input="inputChangeHandler"
+                v-on:keypress.enter="addNewNote"
+                />
+            </div>
+            <br>
+            <button class="button" v-on:click="addNewNote">Add</button>
+            <hr />
+            <ul class="list">
+                <li class="list-item" v-for="myNote in noteArc">{{myNote}}</li>                
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

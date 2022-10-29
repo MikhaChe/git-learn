@@ -24,9 +24,13 @@
             <br>
             <button class="button" v-on:click="addNewNote">Add</button>
             <hr />
-            <ul class="list">
-                <li class="list-item" v-for="myNote in noteArc">{{myNote}}</li>                
+            <ul class="list" v-if="noteArc.length !== 0">
+                <li class="list-item" v-for="(myNote, idx) in noteArc">
+                    {{myNote}}
+                    <button class="btn danger" v-on:click="removeNote(idx)">Del</button>
+                </li>                
             </ul>
+            <div v-else> Enter the first todo! :)</div>
         </div>
     </div>
 

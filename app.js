@@ -13,9 +13,15 @@ const App = {
         },
 
         addNewNote() {
-            this.noteArc.push(this.inputValue);
-            this.inputValue = '';
+            if(this.inputValue !== '') {
+                this.noteArc.push(this.inputValue);
+                this.inputValue = '';
+            }           
         },
+
+        removeNote(idx) {
+            this.noteArc.splice(idx, 1);
+        }
 
     }
 }
